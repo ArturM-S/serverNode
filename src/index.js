@@ -9,6 +9,10 @@ const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 app.post("/create-checkout-session", urlencodedParser, async (req, res) => {
   console.log(req);
   console.log(res);
