@@ -9,18 +9,7 @@ var cors = require('cors')
 
 const jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-
-var corsOptions = {
-  origin: '*',
-  optionsSuccessStatus: 200,
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: true,
-  credentials: true,
-  allowedHeaders: "*",
-  exposedHeaders: "*",
-  
-}
-app.use(cors(corsOptions))
+app.use(cors())
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
