@@ -10,11 +10,7 @@ var cors = require('cors')
 const jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-var corsOptions = {
-  origin: 'http://54.233.177.232:8080',
-  optionsSuccessStatus: 200
-}
-app.use(cors(corsOptions))
+app.use(cors())
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
