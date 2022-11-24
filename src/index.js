@@ -10,24 +10,16 @@ var cors = require('cors')
 const jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-var allowCrossDomain = function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,POST');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-
-  next();
+var corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: true,
+  credentials: false,
+  allowedHeaders: "Content-Type, Authorization, X-Requested-With, Accept, Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+  exposedHeaders: "Content-Type, Authorization, X-Requested-With, Accept, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
 }
-
-//...
-app.configure(function() {
-  app.use(express.bodyParser());
-  app.use(express.cookieParser());
-  app.use(express.session({ secret: 'cool beans' }));
-  app.use(express.methodOverride());
-  app.use(allowCrossDomain);
-  app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
-});
+app.use(cors(corsOptions))
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
