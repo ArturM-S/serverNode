@@ -14,8 +14,6 @@ app.get("/", (req, res) => {
 });
 
 app.post("/create-checkout-session", urlencodedParser, async (req, res) => {
-  console.log(req);
-  console.log(res);
   const { price } = req.body;
   const checkoutInfo = {
     payment_method_types: ['card'],
@@ -41,4 +39,4 @@ app.post("/create-checkout-session", urlencodedParser, async (req, res) => {
   res.redirect(303, session.url);
 });
 
-app.listen(4242, () => console.log(`Listening on port ${4242}!`));
+app.listen(8080, () => console.log(`Listening on port ${4242}!`));
