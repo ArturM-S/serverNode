@@ -4,11 +4,17 @@ const stripe = require("stripe")(
   "sk_test_51LVhgnAumJv74xi4mpuvEHppE80K5BDM8JShLqCCaOs8tw9c3thMY8MkhaNhojiOF3Cpef2b1ukGfPxNmKXBQiKJ007Fg1IRlr"
 );
 const bodyParser = require("body-parser");
+var cors = require('cors')
 
 
 const jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+var corsOptions = {
+  origin: 'http://54.233.177.232:8080',
+  optionsSuccessStatus: 200
+}
+app.use(cors(corsOptions))
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
