@@ -15,7 +15,7 @@ var corsOptions = {
   optionsSuccessStatus: 200,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: true,
-  credentials: false,
+  credentials: true,
   allowedHeaders: "Content-Type, Authorization, X-Requested-With, Accept, Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
   exposedHeaders: "Content-Type, Authorization, X-Requested-With, Accept, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
 }
