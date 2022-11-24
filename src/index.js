@@ -16,8 +16,9 @@ var corsOptions = {
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: true,
   credentials: true,
-  allowedHeaders: "Content-Type, Authorization, X-Requested-With, Accept, Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
-  exposedHeaders: "Content-Type, Authorization, X-Requested-With, Accept, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+  allowedHeaders: "*",
+  exposedHeaders: "*",
+  
 }
 app.use(cors(corsOptions))
 app.get("/", (req, res) => {
