@@ -11,7 +11,7 @@ const jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 var corsOptions = {
-  origin: 'http://127.0.0.1:5500/index.html',
+  origin: '*',
   optionsSuccessStatus: 200,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: true,
