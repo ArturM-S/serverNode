@@ -15,6 +15,14 @@ app.get("/", (req, res) => {
 });
 
 app.post("/create-checkout-session", urlencodedParser, async (req, res) => {
+  var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'example.com');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+}
+  
   const { price } = req.body;
   const checkoutInfo = {
     payment_method_types: ['card'],
